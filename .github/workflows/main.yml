@@ -1,0 +1,29 @@
+name: Weekly Annual Progress Post
+
+on:
+  schedule:
+    # Runs at midnight EST (5 AM UTC) weekly on sunday
+    - cron: "0 5 * * 7"
+  workflow_dispatch:
+
+jobs:
+  postCountdown:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20" # Specify the Node.js version you're using
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run the progress script
+        run: node src/connectAndPost.js
+        env:
+          BLUESKY_USERNAME: ${{ secrets.BLUESKY_USERNAME }}
+          BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
