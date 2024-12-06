@@ -11,11 +11,15 @@ globalThis.Request = Request;
 import dotenv from "dotenv";
 import cron from "node-cron";
 import { authenticateAgent } from "./authenticateAgent.js";
+import { getBipPosts } from "./getBipPosts.js";
 
 dotenv.config();
 
 export const run = async () => {
   const agent = await authenticateAgent();
+
+  const posts = await getBipPosts(agent);
+  console.log(posts);
 
   // await agent.post({
   //   text: `${text}`,
