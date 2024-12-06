@@ -21,6 +21,8 @@ export const run = async () => {
   const posts = await getBipPosts(agent);
   console.log(posts);
 
+  //need to do an efficient ranking on top posts with likes, reposts, and replies
+
   // await agent.post({
   //   text: `${text}`,
   //   createdAt: new Date().toISOString(),
