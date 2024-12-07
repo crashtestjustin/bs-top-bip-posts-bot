@@ -62,7 +62,7 @@ export const run = async () => {
     "likes"
   );
   await postWinners(
-    "Reposted",
+    "Reposted (including quote posts)",
     topPosts.mostReposted,
     (topPosts.mostReposted?.repostCount || 0) +
       (topPosts.mostReposted?.quoteCount || 0),
