@@ -1,7 +1,6 @@
 export const getBipPosts = async (agent) => {
   let allPosts = [];
   let cursor = null;
-  console.log("starting");
   do {
     const response = await agent.api.app.bsky.feed.searchPosts({
       q: "#buildinpublic", // Query for the hashtag
@@ -15,9 +14,6 @@ export const getBipPosts = async (agent) => {
 
     // Update the cursor for the next request
     cursor = response.data.cursor;
-    console.log("CURSOR", cursor);
   } while (cursor); // Continue while a cursor is present
-
-  console.log("complete");
   return allPosts;
 };

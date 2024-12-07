@@ -22,7 +22,6 @@ export const run = async () => {
 
   const posts = await getBipPosts(agent);
   const topPosts = rankTopPosts(posts);
-  console.log(topPosts);
 
   // Post announcements for each winner
   const postWinners = async (category, post, count, metric) => {
