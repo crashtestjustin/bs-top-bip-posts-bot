@@ -2,8 +2,8 @@ name: Weekly Annual Progress Post
 
 on:
   schedule:
-    # Runs at midnight EST (5 AM UTC) weekly on sunday
-    - cron: "0 5 * * 0"
+    # Runs at 11:59pm UTC
+    - cron: "59 23 * * *"
   workflow_dispatch:
 
 jobs:
