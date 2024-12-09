@@ -8,9 +8,17 @@ export const standardWinnersPost = async (category, post, count, metric) => {
       - By: @${post.author.handle}
       - ${count} ${metric}
       
-      Congrats! 🎉 Keep up the great work!
+      ${
+        category === "Liked"
+          ? "People are really liking what you are posting!👍"
+          : category === "Reposted (including quote posts)"
+          ? "You post is clearly share-worthy!💌"
+          : "You post is engaging the community!🎉"
+      }
       `,
   });
 
   return announcement;
 };
+
+// Congrats! 🎉 Keep up the great work!
