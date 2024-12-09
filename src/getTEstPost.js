@@ -7,7 +7,7 @@ export const getTestPost = async (agent) => {
       q: "#justatestpostonafridaynight", // Query for the hashtag
       limit: 100, // Optional: Limit the number of posts per request
       cursor: cursor ? cursor : "", // Pass the cursor if present
-      since: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
+      // since: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
     });
 
     // Collect posts from the current response
