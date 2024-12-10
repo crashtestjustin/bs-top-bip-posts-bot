@@ -10,7 +10,7 @@ export const standardWinnersPost = async (category, post, count, metric) => {
       
       ${
         category === "Liked"
-          ? "People are really liking what you are posting!👍"
+          ? "People really like what you're posting!👍"
           : category === "Reposted (including quote posts)"
           ? "You post is clearly share-worthy!💌"
           : "You post is engaging the community!🎉"
