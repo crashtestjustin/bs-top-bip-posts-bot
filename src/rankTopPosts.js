@@ -6,6 +6,7 @@ export const rankTopPosts = (posts) => {
   let topLikes = null;
   let topReposts = null;
   let topReplies = null;
+  // let allOtherPosts = [];
 
   for (const post of posts) {
     if (!post) continue;
@@ -33,9 +34,18 @@ export const rankTopPosts = (posts) => {
     }
   }
 
+  // Second pass: Filter out the top posts
+  const allOtherPosts = posts.filter(
+    (post) =>
+      post.cid !== topLikes?.cid &&
+      post.cid !== topReposts?.cid &&
+      post.cid !== topReplies?.cid
+  );
+
   return {
     mostLiked: topLikes,
     mostReposted: topReposts,
     mostReplied: topReplies,
+    allOtherPosts: allOtherPosts,
   };
 };
