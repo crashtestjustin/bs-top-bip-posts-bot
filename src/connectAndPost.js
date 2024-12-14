@@ -17,6 +17,8 @@ import { RichText } from "@atproto/api";
 import { standardWinnersPost } from "./createStandardPostText.js";
 import { tripleCrownText } from "./createTripleCrownPostText.js";
 import { getTestPost } from "./getTEstPost.js";
+import { getRunnerUpPosts } from "./getRunnerUpPosts.js";
+import { alertRunnerups } from "./alertRunnerUps.js";
 
 dotenv.config();
 
@@ -26,7 +28,10 @@ export const run = async () => {
   const posts = await getBipPosts(agent);
   // const posts = await getTestPost(agent);
   const topPosts = rankTopPosts(posts);
-  // console.log(topPosts);
+  //find runner up posts for each type of post
+  const runnerUps = await getRunnerUpPosts(topPosts.allOtherPosts, 3);
+
+  const alertingRunnerups = await alertRunnerups(agent, runnerUps);
 
   // Post announcements for each winner
   const postWinners = async (category, post, count, metric) => {
