@@ -14,8 +14,7 @@ export const standardWinnersPost = async (category, post, count, metric) => {
           : category === "Reposted (including quote posts)"
           ? "You post is clearly share-worthy!💌"
           : "You post is engaging the community!🎉"
-      }
-      `,
+      }`,
   });
 
   return announcement;
