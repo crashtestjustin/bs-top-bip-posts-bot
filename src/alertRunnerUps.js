@@ -72,22 +72,18 @@ export const alertRunnerups = async (agent, runnerUps) => {
     // Construct a single reply message for all categories
     const categories = posts
       .map(
-        ({ category, count, metric }) =>
-          `- Most ${category} with ${count} ${metric}!`
+        // ({ category, count, metric }) => `most ${category} (${count} ${metric})`
+        ({ category, count, metric }) => `most ${category} (${count})`
       )
-      .join("\n");
+      .join(" & ");
 
-    const replyText = `Hey ${author.handle},
-    This post was a runner-up in these categories in the past 24 hours for #buildinpublic posts:
-    ${categories}
-      
-    See who had the top posts on our feed @biptopposts.bsky.social. Keep up the great work!🎉`;
+    const replyText = `Hey ${author.handle}👋,\n\nThis post was a runner-up for a top #buildinpublic posts for the past 24hrs. You almost got ${categories}!\n\nSee who had the top posts on our feed @biptopposts.bsky.social. Keep up the great work!🎉`;
+
+    // console.log(replyText);
 
     const reply = new RichText({
       text: replyText,
     });
-
-    // console.log(reply);
 
     await reply.detectFacets(agent);
 
