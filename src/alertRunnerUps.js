@@ -77,12 +77,14 @@ export const alertRunnerups = async (agent, runnerUps) => {
       )
       .join("\n");
 
-    const reply = new RichText({
-      text: `Hey ${author.handle},
-      This post was a runner-up in these categories in the past 24 hours for #buildinpublic posts:
-      ${categories}
+    const replyText = `Hey ${author.handle},
+    This post was a runner-up in these categories in the past 24 hours for #buildinpublic posts:
+    ${categories}
       
-      See who had the top posts on our the feed @biptopposts.bsky.social. Keep up the great work!`,
+    See who had the top posts on our feed @biptopposts.bsky.social. Keep up the great work!🎉`;
+
+    const reply = new RichText({
+      text: replyText,
     });
 
     // console.log(reply);
