@@ -73,16 +73,16 @@ export const alertRunnerups = async (agent, runnerUps) => {
     const categories = posts
       .map(
         ({ category, count, metric }) =>
-          `- Most ${category} with ${count} ${metric}! (at time of calculation)`
+          `- Most ${category} with ${count} ${metric}!`
       )
       .join("\n");
 
     const reply = new RichText({
-      text: `Hey ${author.handle}👋,
+      text: `Hey ${author.handle},
       This post was a runner-up in these categories in the past 24 hours for #buildinpublic posts:
       ${categories}
       
-      See who had the top posts on our the feed @biptopposts.bsky.social. Keep up the great work!🎉`,
+      See who had the top posts on our the feed @biptopposts.bsky.social. Keep up the great work!`,
     });
 
     // console.log(reply);
