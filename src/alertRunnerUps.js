@@ -79,10 +79,10 @@ export const alertRunnerups = async (agent, runnerUps) => {
 
     const reply = new RichText({
       text: `Hey ${author.handle}👋,
-      This post was a runner-up for the following categories in the past 24 hours for all posts using #buildinpublic:
+      This post was a runner-up in these categories in the past 24 hours for #buildinpublic posts:
       ${categories}
       
-      If you want to see who had the top posts, you can check out the feed @biptopposts.bsky.social. Keep up the great work!🎉`,
+      See who had the top posts on our the feed @biptopposts.bsky.social. Keep up the great work!🎉`,
     });
 
     // console.log(reply);
