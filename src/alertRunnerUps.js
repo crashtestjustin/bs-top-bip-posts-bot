@@ -77,7 +77,7 @@ export const alertRunnerups = async (agent, runnerUps) => {
       )
       .join(" & ");
 
-    const replyText = `Hey ${author.handle}👋,\n\nThis post was a runner-up for a top #buildinpublic posts for the past 24hrs. You almost got ${categories}!\n\nSee who had the top posts on our feed @biptopposts.bsky.social. Keep up the great work!🎉`;
+    const replyText = `Hey @${author.handle}👋,\n\nThis post was a runner-up for a top #buildinpublic posts for the past 24hrs. You almost got ${categories}!\n\nSee who had the top posts on our feed @biptopposts.bsky.social. Keep up the great work!🎉`;
 
     // console.log(replyText);
 
